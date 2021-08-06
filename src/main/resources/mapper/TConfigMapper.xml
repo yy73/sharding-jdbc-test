@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yy.shardingjdbc.mapper.TConfigMapper">
+    <insert id="insert">
+        insert into t_config (config_name, config_status)
+        values (#{configName}, #{configStatus});
+    </insert>
+    <select id="getById" resultType="com.yy.shardingjdbc.entity.TConfig">
+        select config_id as "configId", config_name as "configName", config_status as "configStatus"
+        from t_config
+        where config_id = #{configId}
+    </select>
+</mapper>

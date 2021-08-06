@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yy.shardingjdbc.mapper.TOrderMapper">
+    <insert id="insert">
+        insert into t_order (order_name, order_status, user_id)
+        values (#{orderName}, #{orderStatus}, #{userId});
+    </insert>
+    <select id="getById" resultType="com.yy.shardingjdbc.entity.TOrder">
+        select order_id     as "orderId",
+               order_name   as "orderName",
+               order_status as "orderStatus",
+               order_time   as "orderTime",
+               user_id      as "userId"
+        from t_order
+        where order_id = #{orderId};
+    </select>
+</mapper>
